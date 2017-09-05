@@ -4,8 +4,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    GYGImageWidget w;
-    w.show();
+    GYGImageDialog w;
 
-    return a.exec();
+    return w.exec();
 }
