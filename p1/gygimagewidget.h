@@ -7,6 +7,7 @@
 #include <QPixmap>
 #include <QDebug>
 #include <QString>
+#include <QSize>
 #include <QWidget>
 #include <QSettings>
 #include <QDialogButtonBox>
@@ -15,6 +16,8 @@
 #include <QStandardPaths>
 #include <QVBoxLayout>
 #include <QFileDialog>
+#include <QSizePolicy>
+
 
 class GYGImageObject
 {

@@ -1,5 +1,7 @@
 #include "gygimagewidget.h"
 
+float h2w;
+
 GYGImageWidget::GYGImageWidget(QImage image,QWidget *parent) : QWidget(parent), label(NULL)
 {
     this->setLayout(new QVBoxLayout());
@@ -21,12 +23,19 @@ GYGImageWidget::GYGImageWidget(QImage image,QWidget *parent) : QWidget(parent), 
             settings.setValue(QString("GYGImageWidget::lastDirectory"), string);
 
             QImage image(filename);
+            ::h2w = (float) image.height()/image.width();
+            qDebug() << "FLOAT" << ::h2w << image.height() << image.width() << image.height()/image.width();
+            //QImage reimage = image.scaled(image.size(), Qt::KeepAspectRatio,
+            //               Qt::FastTransformation);
+
             if (image.isNull() == false) {
                 label = new GYGImageLabel();
                 label->onSetImage(image);
+                //label->
                 //label->setPixmap(QPixmap::fromImage(image));
                 //label->setScaledContents(true);
                 this->layout()->addWidget(label);
+
             }
         }
     }
@@ -41,7 +50,10 @@ void GYGImageLabel::paintEvent(QPaintEvent *)
     QPainter painter;
     painter.begin(this);
     painter.setPen(QPen(Qt::black,2));
-    painter.drawImage(QRect(0,0, this->width(), this->height()), image);
-    painter.drawRect(QRect(0,0, this->width(), this->height()));
+    float setWidth = (float) this->width();
+    painter.drawImage(QRect(0,0, this->width(), (int) setWidth*::h2w), image);
+    painter.drawRect(QRect(0,0, this->width(), (int) setWidth*::h2w));
     painter.end();
 }
+
+//QResizeEvent is how to do the homework

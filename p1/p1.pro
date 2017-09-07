@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,10 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        gygimagewidget.cpp
+        gygimagewidget.cpp \
+        #gygopenglwidget.cpp
 
 HEADERS += \
-        gygimagewidget.h
+       gygimagewidget.h \
+       #gygopenglwidget.h
 
 FORMS += \
         gygimagewidget.ui
+
+win32{
+    LIBS+= -lopengl32
+}
