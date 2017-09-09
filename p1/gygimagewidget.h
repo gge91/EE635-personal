@@ -33,7 +33,7 @@ class GYGImageLabel: public QLabel
 public:
     GYGImageLabel(QWidget *parent = 0) : QLabel(parent) {;}
     ~GYGImageLabel() {;}
-    QImage image;
+    QImage image; //made QImage public to grab image properties with QWidget::resizeEvent
 
 public slots:
     void onSetImage(QImage img)
@@ -61,7 +61,7 @@ private:
     GYGImageLabel *label;
 
 protected:
-    void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent *event); //hw1 resize declaration
 
 };
 
