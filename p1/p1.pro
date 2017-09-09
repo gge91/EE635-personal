@@ -38,3 +38,10 @@ FORMS += \
 win32{
     LIBS+= -lopengl32
 }
+
+DISTFILES += \
+    #gygimagewidget.vert \
+    #gygimagewidget.frag
+
+RESOURCES += \
+    #gygimagewidget.qrc

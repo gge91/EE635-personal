@@ -1,6 +1,7 @@
 #include "gygimagewidget.h"
 
-float h2w;
+//wrong hw1 solution part
+//float h2w;
 
 GYGImageWidget::GYGImageWidget(QImage image,QWidget *parent) : QWidget(parent), label(NULL)
 {
@@ -23,8 +24,11 @@ GYGImageWidget::GYGImageWidget(QImage image,QWidget *parent) : QWidget(parent), 
             settings.setValue(QString("GYGImageWidget::lastDirectory"), string);
 
             QImage image(filename);
-            ::h2w = (float) image.height()/image.width();
-            qDebug() << "FLOAT" << ::h2w << image.height() << image.width() << image.height()/image.width();
+
+            //wrong hw1 solution
+            //::h2w = (float) image.height()/image.width();
+            //qDebug() << "FLOAT" << ::h2w << image.height() << image.width() << image.height()/image.width();
+
             //QImage reimage = image.scaled(image.size(), Qt::KeepAspectRatio,
             //               Qt::FastTransformation);
 
@@ -50,10 +54,26 @@ void GYGImageLabel::paintEvent(QPaintEvent *)
     QPainter painter;
     painter.begin(this);
     painter.setPen(QPen(Qt::black,2));
-    float setWidth = (float) this->width();
-    painter.drawImage(QRect(0,0, this->width(), (int) setWidth*::h2w), image);
-    painter.drawRect(QRect(0,0, this->width(), (int) setWidth*::h2w));
+    painter.drawImage(QRect(0,0, this->width(), this->height()), image);
+    painter.drawRect(QRect(0,0, this->width(), this->height()));
+
+    //wrong hw1 solution
+    //float setWidth = (float) this->width();
+    //painter.drawImage(QRect(0,0, this->width(), (int) setWidth*::h2w), image);
+    //painter.drawRect(QRect(0,0, this->width(), (int) setWidth*::h2w));
+
     painter.end();
 }
 
 //QResizeEvent is how to do the homework
+
+void GYGImageWidget::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+    float w = this->label->image.width();
+    float h = this->label->image.height();
+    //float h2w = (float) image.height()/image.width();
+    //float setWidth = (float) this->width();
+
+    GYGImageWidget::setFixedHeight((int)(h/w*(this->width())));
+}

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/shaders">
+        <file>gygimagewidget.frag</file>
+        <file>gygimagewidget.vert</file>
+    </qresource>
+</RCC>

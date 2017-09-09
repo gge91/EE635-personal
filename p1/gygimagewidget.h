@@ -11,6 +11,7 @@
 #include <QWidget>
 #include <QSettings>
 #include <QDialogButtonBox>
+#include <QResizeEvent>
 #include <QPushButton>
 #include <QPainter>
 #include <QStandardPaths>
@@ -32,6 +33,7 @@ class GYGImageLabel: public QLabel
 public:
     GYGImageLabel(QWidget *parent = 0) : QLabel(parent) {;}
     ~GYGImageLabel() {;}
+    QImage image;
 
 public slots:
     void onSetImage(QImage img)
@@ -43,8 +45,7 @@ public slots:
 protected:
     void paintEvent(QPaintEvent *);
 
-private:
-    QImage image;
+//private:
 };
 
 
@@ -58,6 +59,10 @@ public:
 
 private:
     GYGImageLabel *label;
+
+protected:
+    void resizeEvent(QResizeEvent *event);
+
 };
 
 class GYGImageDialog : public QDialog
@@ -99,8 +104,6 @@ protected:
         also note that when this is done the arguments have to be the same (in this case accept() has no
         arguments so the void also has no arguments)*/
         //save results
-        emit emitInt(5);
-
         QDialog::accept();
     }
     void reject()
