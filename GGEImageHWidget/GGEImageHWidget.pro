@@ -1,14 +1,12 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-08-29T14:25:07
+# Project created by QtCreator 2017-08-29T14:24:36
 #
 #-------------------------------------------------
 
-QT       += core gui opengl
+QT += core gui widgets opengl
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-TARGET = p1
+TARGET = LAUImageWidget
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -20,28 +18,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+HEADERS += ggeimagehwidget.h \
+           laumemoryobject.h \
+    #lauconvolutionglcontext.h
 
-SOURCES += \
-        main.cpp \
-        gygimagewidget.cpp \
-        gygopenglwidget.cpp
+SOURCES += main.cpp\
+           ggeimagehwidget.cpp \
+           laumemoryobject.cpp \
+    #lauconvolutionglcontext.cpp
 
-HEADERS += \
-       gygimagewidget.h \
-       gygopenglwidget.h
-
-FORMS += \
-        gygimagewidget.ui
-
-win32{
-    LIBS+= -lopengl32
+win32 {
+    LIBS += -lopengl32
 }
 
-DISTFILES += \
-    gygimagewidget.vert \
-    gygimagewidget.frag
 
 RESOURCES += \
-    gygimagewidget.qrc
+    ggeimagehwidget.qrc
+
+win32 {
+    INCLUDEPATH += $$quote(C:/usr/include)
+    DEPENDPATH  += $$quote(C:/usr/include)
+    LIBS        += -L$$quote(C:/usr/lib) -llibtiff_i -lopengl32
+}

@@ -1,14 +1,14 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-08-29T14:25:07
+# Project created by QtCreator 2017-10-31T18:10:53
 #
 #-------------------------------------------------
 
-QT       += core gui opengl
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = p1
+TARGET = GGEMorphologicalWidget
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,23 +25,35 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        gygimagewidget.cpp \
-        gygopenglwidget.cpp
+        ggemorphologicalwidget.cpp\
+        laumemoryobject.cpp
 
 HEADERS += \
-       gygimagewidget.h \
-       gygopenglwidget.h
+        ggemorphologicalwidget.h\
+        laumemoryobject.h
 
-FORMS += \
-        gygimagewidget.ui
-
-win32{
-    LIBS+= -lopengl32
+win32 {
+    LIBS += -lopengl32
 }
 
 DISTFILES += \
-    gygimagewidget.vert \
-    gygimagewidget.frag
+    lauimagewidget.vert \
+    lauimagewidget.frag \
+    lauimagefilter.frag \
+    lauconvolutionfilter.vert \
+    lauconvolutionfilter.frag \
+    ggemorphologicalwidget.vert \
+    ggemorphologicalwidget.frag \
+    ggemorphopen.vert \
+    ggemorphopen.frag \
+    ggemorphclose.frag
 
 RESOURCES += \
-    gygimagewidget.qrc
+    lauimagewidget.qrc \
+    ggemorphologicalwidget.qrc
+
+win32 {
+    INCLUDEPATH += $$quote(C:/usr/include)
+    DEPENDPATH  += $$quote(C:/usr/include)
+    LIBS        += -L$$quote(C:/usr/lib) -llibtiff_i -lopengl32
+}

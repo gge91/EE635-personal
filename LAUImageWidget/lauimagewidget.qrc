@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/shaders">
+        <file>lauimagewidget.frag</file>
+        <file>lauimagewidget.vert</file>
+        <file>lauimagefilter.frag</file>
+        <file>ggehistcalc.geom</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>lauconvolutionfilter.frag</file>
+        <file>lauconvolutionfilter.vert</file>
+    </qresource>
+</RCC>

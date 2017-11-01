@@ -1,14 +1,12 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-08-29T14:25:07
+# Project created by QtCreator 2017-10-06T13:57:33
 #
 #-------------------------------------------------
 
-QT       += core gui opengl
+QT       += core gui opengl widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-TARGET = p1
+TARGET = GGEHistogramWidget
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -22,26 +20,31 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+HEADERS += ggehistogramwidget.h \
+           laumemoryobject.h
 
-SOURCES += \
-        main.cpp \
-        gygimagewidget.cpp \
-        gygopenglwidget.cpp
+SOURCES += main.cpp \
+           ggehistogramwidget.cpp \
+           laumemoryobject.cpp
 
-HEADERS += \
-       gygimagewidget.h \
-       gygopenglwidget.h
-
-FORMS += \
-        gygimagewidget.ui
-
-win32{
-    LIBS+= -lopengl32
+win32 {
+    LIBS += -lopengl32
 }
 
-DISTFILES += \
-    gygimagewidget.vert \
-    gygimagewidget.frag
+
+#FORMS += \
+#        ggehistogramwidget.ui
 
 RESOURCES += \
-    gygimagewidget.qrc
+    ggehistogramwidget.qrc
+
+DISTFILES += \
+    ggehistogramwidget.vert \
+    ggehistogramwidget.frag \
+    ggehistcalc.vert \
+    ggehistcalc.frag \
+    ggehistdisp.vert \
+    ggehistdisp.frag
+
+INCLUDEPATH += "C:\usr\include"
+LIBS += -L"C:\usr\lib" -llibtiff_i

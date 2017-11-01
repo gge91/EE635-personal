@@ -1,14 +1,12 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-08-29T14:25:07
+# Project created by QtCreator 2017-10-11T19:31:17
 #
 #-------------------------------------------------
 
-QT       += core gui opengl
+QT       += core gui opengl widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-TARGET = p1
+TARGET = GGEImageWidget
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,23 +23,31 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        gygimagewidget.cpp \
-        gygopenglwidget.cpp
+        ggeimagewidget.cpp \
+        laumemoryobject.cpp
 
 HEADERS += \
-       gygimagewidget.h \
-       gygopenglwidget.h
+        ggeimagewidget.h \
+        laumemoryobject.h
 
-FORMS += \
-        gygimagewidget.ui
+RESOURCES += \
+    ggeimagewidget.qrc
 
-win32{
-    LIBS+= -lopengl32
+win32 {
+    LIBS += -lopengl32
 }
 
 DISTFILES += \
-    gygimagewidget.vert \
-    gygimagewidget.frag
+    ggeimagewidget.vert \
+    ggeimagewidget.frag \
+    ggehistcalc.frag \
+    ggehistcalc.vert \
+    ggehistdisp.frag \
+    ggehistdisp.vert \
+    ggehistcalc.geom
 
-RESOURCES += \
-    gygimagewidget.qrc
+win32 {
+    INCLUDEPATH += $$quote(C:/usr/include)
+    DEPENDPATH  += $$quote(C:/usr/include)
+    LIBS        += -L$$quote(C:/usr/lib) -llibtiff_i -lopengl32
+}

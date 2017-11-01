@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/shaders">
+        <file>ggemorphclose.frag</file>
+        <file>ggemorphoc.vert</file>
+        <file>ggemorphologicalwidget.frag</file>
+        <file>ggemorphologicalwidget.vert</file>
+        <file>ggemorphopen.frag</file>
+    </qresource>
+</RCC>

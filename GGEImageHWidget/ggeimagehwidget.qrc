@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/shaders">
+        <file>ggehistcalc.frag</file>
+        <file>ggehistcalc.vert</file>
+        <file>ggehistdisp.frag</file>
+        <file>ggehistdisp.vert</file>
+        <file>ggehistcalc.geom</file>
+        <file>ggeimagehwidget.frag</file>
+        <file>ggeimagehwidget.vert</file>
+    </qresource>
+</RCC>
